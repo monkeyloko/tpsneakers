@@ -48,34 +48,34 @@ public class BD
     public static List<Productos> ListarProductos(int FK_marca)
     {
         List<Productos> lista = new List<Productos>();
-        string sql = "SELECT * FROM Productos WHERE Productos.FK_marca = @pIdE";
+        string sql = "SELECT * FROM Productos WHERE Productos.FK_marca = @pFK_marca";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            lista = db.Query<Productos>(sql, new { pIdE = FK_marca }).ToList();
+            lista = db.Query<Productos>(sql, new { pFK_marca = FK_marca }).ToList();
         }
         return lista;
     }
 
-    public static Jugador VerInfoJugador(int IdJugador)
+    public static Jugador VerInfoProducto(int ID_Producto)
     {
-        Jugador J = null;
-        string sql = "SELECT * FROM Jugadores WHERE Jugadores.IdJugador = @pIdJJ";
+        Jugador P = null;
+        string sql = "SELECT * FROM Productos WHERE Producto.ID_Producto = @pID_Producto";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            J = db.QueryFirstOrDefault<Jugador>(sql, new { pIdJJ = IdJugador });
+            P = db.QueryFirstOrDefault<Producto>(sql, new { pID_Producto = ID_Producto});
         }
-        return J;
+        return P;
     }
 
-    public static Equipo VerInfoEquipo(int IdEquipo)
+    public static Equipo VerInfoMarca(int ID_MARCA)
     {
-        Equipo E = null;
-        string sql = "SELECT * FROM Equipos WHERE Equipos.IdEquipo = @pIdEE";
+        Equipo M = null;
+        string sql = "SELECT * FROM Marca WHERE Marca.ID_MARCA = @pID_MARCA";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            E = db.QueryFirstOrDefault<Equipo>(sql, new { pIdEE = IdEquipo });
+            M = db.QueryFirstOrDefault<Marca>(sql, new { pID_MARCA = ID_MARCA});
         }
-        return E;
+        return M;
     }
 
 
