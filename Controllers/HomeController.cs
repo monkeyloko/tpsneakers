@@ -15,6 +15,19 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.ListaM = BD.ListarMarcas()
+        return View();
+    }
+
+    public IActionResult VerDetalleMarca(int ID_MARCA){
+
+        ViewBag.Marca = BD.VerInfoMarca(int ID_MARCA);
+        return View();
+        
+    }
+
+    public IActionResult VerDetalleProducto(int ID_Producto){
+        ViewBag.Producto = BD.VerInfoProducto(ID_Producto);
         return View();
     }
 
