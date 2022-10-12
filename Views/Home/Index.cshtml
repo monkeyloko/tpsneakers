@@ -5,7 +5,8 @@
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
 @foreach( Marca m in ViewBag.ListaM){
-       <a href='@Url.Action("VerDetalleMarca", "Home", new{ID_MARCA=@m.ID_MARCA})' class="btn btn-primary"><h5 class="card-title">@m.Nombre</h5></a>
+       <a href='@Url.Action("VerDetalleMarca", "Home", new{ID_MARCA=@m.ID_MARCA})' class="btn btn-primary"><h5 class="card-title">@m.Nombre
+       </h5></a>
 }
 </div>
 

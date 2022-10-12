@@ -22,6 +22,7 @@ public class HomeController : Controller
     public IActionResult VerDetalleMarca(int ID_MARCA){
 
         ViewBag.Marca = BD.VerInfoMarca(ID_MARCA);
+        ViewBag.ListaP = BD.ListarProductos(ID_MARCA);
         return View();
         
     }

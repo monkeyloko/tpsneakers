@@ -1,1 +1,8 @@
 ﻿god
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+@foreach( Productos p in ViewBag.ListaP){
+       <a href='@Url.Action("VerDetalleProducto", "Home", new{ID_Producto=@p.ID_Producto})' class="btn btn-primary"><h5 class="card-title">@p.Nombre
+       </h5></a>
+}
+</div>
