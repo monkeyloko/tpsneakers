@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class BD
 {
 
-    private static string _connectionString = @"Server=DESKTOP-O63256U\SQLEXPRESS;DataBase=Qatar2022;Trusted_Connection=True";
+    private static string _connectionString = @"Server=A-PHZ2-AMI-013;DataBase=SNEAKERS;Trusted_Connection=True";
 
     public static List<Marca> ListarMarcas()
     {
@@ -56,20 +56,20 @@ public class BD
         return lista;
     }
 
-    public static Jugador VerInfoProducto(int ID_Producto)
+    public static Productos VerInfoProducto(int ID_Producto)
     {
-        Jugador P = null;
-        string sql = "SELECT * FROM Productos WHERE Producto.ID_Producto = @pID_Producto";
+        Productos P = null;
+        string sql = "SELECT * FROM Productos WHERE Productos.ID_Producto = @pID_Producto";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            P = db.QueryFirstOrDefault<Producto>(sql, new { pID_Producto = ID_Producto});
+            P = db.QueryFirstOrDefault<Productos>(sql, new { pID_Producto = ID_Producto});
         }
         return P;
     }
 
-    public static Equipo VerInfoMarca(int ID_MARCA)
+    public static Marca VerInfoMarca(int ID_MARCA)
     {
-        Equipo M = null;
+        Marca M = null;
         string sql = "SELECT * FROM Marca WHERE Marca.ID_MARCA = @pID_MARCA";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {

@@ -4,7 +4,7 @@ public class Productos{
     private int _ID_Producto;
     private string _Nombre;
     private string _Foto;
-private int _FK_marca
+private int _FK_marca;
    
 
     public Productos(int ID_Producto, string Nombre, string Foto, int FK_marca){
@@ -38,7 +38,7 @@ private int _FK_marca
             _Foto = value;
         }
     }
-    public string FK_marca{
+    public int FK_marca{
         get{
             return _FK_marca;
         } set{

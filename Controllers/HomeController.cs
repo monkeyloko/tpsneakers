@@ -15,13 +15,13 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        ViewBag.ListaM = BD.ListarMarcas()
+        ViewBag.ListaM = BD.ListarMarcas();
         return View();
     }
 
     public IActionResult VerDetalleMarca(int ID_MARCA){
 
-        ViewBag.Marca = BD.VerInfoMarca(int ID_MARCA);
+        ViewBag.Marca = BD.VerInfoMarca(ID_MARCA);
         return View();
         
     }
