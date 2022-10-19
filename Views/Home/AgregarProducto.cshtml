@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="site.css">
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid mt-5">
+    <div class="container">
+      <h1 class="display-4">Agregar Producto</h1>
+      <p class="lead">
+      <form action='@Url.Action("GuardarProducto", "Home")' method="POST"
+        enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault01">Nombre</label>
+            <input type="text" class="form-control" id="Nombre" placeholder="Nombre" name="Nombre" required>
+          </div>
+         
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault03">Foto</label>
+            <input type="text" class="form-control" id="Foto" placeholder="Foto" name="Foto" required>
+          </div>
+            
+        
+            <input type="hidden" class="form-control" id="FK_marca" placeholder="Foto" name="FK_marca" value ="@ViewBag.FK_marca"required>
+    
+         
+         
+
+          </div>
+          <button type="submit" class="btn btn-primary">Crear</button>
+          <div>
+        Marca =  @ViewBag.FK_marca
+
+
+      </form>
+      </p>
+    </div>
+  </div>
+  <a class="btn btn-primary btn-sm mt-4 ml-4"
+    href='@Url.Action("VerDetalleMarca","Home",new {ID_MARCA = @ViewBag.FK_marca})'>Volver</a>
+  </div>
+</body>

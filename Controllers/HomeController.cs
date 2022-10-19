@@ -31,6 +31,15 @@ public class HomeController : Controller
         ViewBag.Producto = BD.VerInfoProducto(ID_Producto);
         return View();
     }
+    public IActionResult AgregarProducto(int FK_marca){
+        ViewBag.FK_marca= FK_marca;
+        return View();
+    }
+   [HttpPost] public IActionResult GuardarProducto(Productos p){
+        BD.AgregarProducto(p);
+        return RedirectToAction("VerDetalleMarca",  new { ID_MARCA = p.FK_marca });
+
+    }
 
     public IActionResult Privacy()
     {
