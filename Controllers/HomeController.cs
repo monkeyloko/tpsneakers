@@ -40,7 +40,15 @@ public class HomeController : Controller
         return RedirectToAction("VerDetalleMarca",  new { ID_MARCA = p.FK_marca });
 
     }
+    public IActionResult AgregarMarca(){
+        return View();
+    }
+    [HttpPost] public IActionResult GuardarMarca(Marca m){
+        Console.WriteLine(m.FechaFundacion);
+        BD.AgregarMarca(m);
+        return RedirectToAction("Index");
 
+    }
     public IActionResult Privacy()
     {
         return View();

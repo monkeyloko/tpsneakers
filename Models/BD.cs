@@ -30,7 +30,7 @@ public class BD
 
     public static void AgregarMarca(Marca J)
     {
-        string sql = "INSERT INTO Marca VALUES (@pNombre, @pFechaFundacion, @pFoto, @pFundadores)";
+        string sql = "INSERT INTO Marca VALUES (@pNombre, @pFoto,  @pFundadores, @pFechaFundacion )";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(sql, new {pNombre = J.Nombre, pFechaFundacion = J.FechaFundacion, pFoto = J.Foto, pFundadores = J.Fundadores});

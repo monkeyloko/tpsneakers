@@ -6,7 +6,7 @@ public class Marca{
     private string _Nombre;
     private string _Fundadores;
     private string _Foto;
-    private DateTime _Fecha_de_Fundacion;
+    private DateTime _FechaFundacion;
    
 
     public Marca(int ID_MARCA, string Nombre, string Fundadores, string Foto, DateTime FechaFundacion){
@@ -14,7 +14,7 @@ public class Marca{
         _Nombre =Nombre;
         _Fundadores = Fundadores;
         _Foto = Foto;
-        _Fecha_de_Fundacion = FechaFundacion;
+        _FechaFundacion = FechaFundacion;
       
     }
 
@@ -50,9 +50,9 @@ public class Marca{
     }
         public DateTime FechaFundacion{
         get{
-            return _Fecha_de_Fundacion;
+            return _FechaFundacion;
         } set{
-            _Fecha_de_Fundacion = value;
+            _FechaFundacion = value;
         }
     }
     public Marca(){
