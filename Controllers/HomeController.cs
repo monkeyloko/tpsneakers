@@ -13,7 +13,7 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public IActionResult Marcas()
     {
         ViewBag.ListaM = BD.ListarMarcas();
         return View();
@@ -46,7 +46,7 @@ public class HomeController : Controller
     [HttpPost] public IActionResult GuardarMarca(Marca m){
         Console.WriteLine(m.FechaFundacion);
         BD.AgregarMarca(m);
-        return RedirectToAction("Index");
+        return RedirectToAction("Marcas");
 
     }
     public IActionResult Privacy()

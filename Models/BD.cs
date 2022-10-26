@@ -1,5 +1,4 @@
 namespace TPSNEAKERS.Models;
-
 using System.Data.SqlClient;
 using Dapper;
 using System.Collections.Generic;
@@ -77,6 +76,11 @@ public class BD
         }
         return M;
     }
-
-
+    public static void CrearUsuario(Usuario u){
+        string sql = "INSERT INTO Usuario VALUES (@pNombre)";
+         using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pNombre = u.Nombre });
+        }
+    }
 }
