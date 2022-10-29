@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class BD
 {
 
-    private static string _connectionString = @"Server=A-PHZ2-AMI-015;DataBase=SNEAKERS;Trusted_Connection=True";
+    private static string _connectionString = @"Server=DESKTOP-O63256U\SQLEXPRESS;DataBase=SNEAKERS;Trusted_Connection=True";
 
     public static List<Marca> ListarMarcas()
     {
@@ -32,7 +32,7 @@ public class BD
         string sql = "INSERT INTO Marca VALUES (@pNombre, @pFoto,  @pFundadores, @pFechaFundacion )";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(sql, new {pNombre = J.Nombre, pFechaFundacion = J.FechaFundacion, pFoto = J.Foto, pFundadores = J.Fundadores});
+            db.Execute(sql, new { pNombre = J.Nombre, pFechaFundacion = J.FechaFundacion, pFoto = J.Foto, pFundadores = J.Fundadores });
         }
     }
     public static void AgregarProducto(Productos E)
@@ -40,10 +40,10 @@ public class BD
         string sql = "INSERT INTO Productos VALUES (@pNombre, @pFoto, @pFK_marca)";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(sql, new { pNombre = E.Nombre, pFoto = E.Foto, pFK_marca = E.FK_marca});
+            db.Execute(sql, new { pNombre = E.Nombre, pFoto = E.Foto, pFK_marca = E.FK_marca });
         }
     }
-   
+
     public static List<Productos> ListarProductos(int FK_marca)
     {
         List<Productos> lista = new List<Productos>();
@@ -61,7 +61,7 @@ public class BD
         string sql = "SELECT * FROM Productos WHERE Productos.ID_Producto = @pID_Producto";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            P = db.QueryFirstOrDefault<Productos>(sql, new { pID_Producto = ID_Producto});
+            P = db.QueryFirstOrDefault<Productos>(sql, new { pID_Producto = ID_Producto });
         }
         return P;
     }
@@ -72,13 +72,14 @@ public class BD
         string sql = "SELECT * FROM Marca WHERE Marca.ID_MARCA = @pID_MARCA";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            M = db.QueryFirstOrDefault<Marca>(sql, new { pID_MARCA = ID_MARCA});
+            M = db.QueryFirstOrDefault<Marca>(sql, new { pID_MARCA = ID_MARCA });
         }
         return M;
     }
-    public static void CrearUsuario(Usuario u){
+    public static void CrearUsuario(Usuario u)
+    {
         string sql = "INSERT INTO Usuario VALUES (@pNombre)";
-         using (SqlConnection db = new SqlConnection(_connectionString))
+        using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(sql, new { pNombre = u.Nombre });
         }

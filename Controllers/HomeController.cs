@@ -12,38 +12,50 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-
+    public IActionResult Index()
+    {
+        ViewBag.ListaM = BD.ListarMarcas();
+        return View();
+    }
     public IActionResult Marcas()
     {
         ViewBag.ListaM = BD.ListarMarcas();
         return View();
     }
 
-    public IActionResult VerDetalleMarca(int ID_MARCA){
+    public IActionResult VerDetalleMarca(int ID_MARCA)
+    {
 
         ViewBag.Marca = BD.VerInfoMarca(ID_MARCA);
         ViewBag.ListaP = BD.ListarProductos(ID_MARCA);
         return View();
-        
+
     }
 
-    public IActionResult VerDetalleProducto(int ID_Producto){
+    public IActionResult VerDetalleProducto(int ID_Producto)
+    {
         ViewBag.Producto = BD.VerInfoProducto(ID_Producto);
         return View();
     }
-    public IActionResult AgregarProducto(int FK_marca){
-        ViewBag.FK_marca= FK_marca;
+    public IActionResult AgregarProducto(int FK_marca)
+    {
+        ViewBag.FK_marca = FK_marca;
         return View();
     }
-   [HttpPost] public IActionResult GuardarProducto(Productos p){
+    [HttpPost]
+    public IActionResult GuardarProducto(Productos p)
+    {
         BD.AgregarProducto(p);
-        return RedirectToAction("VerDetalleMarca",  new { ID_MARCA = p.FK_marca });
+        return RedirectToAction("VerDetalleMarca", new { ID_MARCA = p.FK_marca });
 
     }
-    public IActionResult AgregarMarca(){
+    public IActionResult AgregarMarca()
+    {
         return View();
     }
-    [HttpPost] public IActionResult GuardarMarca(Marca m){
+    [HttpPost]
+    public IActionResult GuardarMarca(Marca m)
+    {
         Console.WriteLine(m.FechaFundacion);
         BD.AgregarMarca(m);
         return RedirectToAction("Marcas");
