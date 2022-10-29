@@ -25,14 +25,18 @@ body {
 
 .espacioMarcas {
   width: 100%;
-  height: 750px;
+  height: 100%;
 
 }
 
+
+
 .cuerpoMarcas {
+  margin-top: 25px;
   width: 100%;
-  height: 600px;
+  height: 100%;
   background-color: aliceblue;
+  margin-bottom: 100px;
 }
 
 .espacioMarcas img {

@@ -14,7 +14,7 @@ public class HomeController : Controller
     }
     public IActionResult Index()
     {
-        ViewBag.ListaM = BD.ListarMarcas();
+
         return View();
     }
     public IActionResult Marcas()
