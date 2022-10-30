@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class BD
 {
 
-    private static string _connectionString = @"Server=DESKTOP-O63256U\SQLEXPRESS;DataBase=SNEAKERS;Trusted_Connection=True";
+    private static string _connectionString = @"Server=DESKTOP-2A953T5\SQLEXPRESS;DataBase=SNEAKERS;Trusted_Connection=True";
 
     public static List<Marca> ListarMarcas()
     {
@@ -16,6 +16,23 @@ public class BD
             lista = db.Query<Marca>(sql).ToList();
         }
         return lista;
+    }
+    public static Usuario UsuarioDadoNombre(string Nombre){
+        /*int res;
+        string sql = "SELECT Count(*) FROM Usuario WHERE Usuario.Nombre = @pname";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            res = db.QueryFirstOrDefault<int>(sql, new { pname = Nombre });
+        }
+        return res;
+        */
+        Usuario u = null;
+        string sql = "SELECT Count(*) FROM Usuario WHERE Usuario.Nombre = @pname";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            u = db.QueryFirstOrDefault<Usuario>(sql, new { pname = Nombre });
+        }
+        return u;
     }
 
     public static void EliminarMarca(int ID_MARCA)
@@ -43,7 +60,6 @@ public class BD
             db.Execute(sql, new { pNombre = E.Nombre, pFoto = E.Foto, pFK_marca = E.FK_marca });
         }
     }
-
     public static List<Productos> ListarProductos(int FK_marca)
     {
         List<Productos> lista = new List<Productos>();
@@ -76,7 +92,7 @@ public class BD
         }
         return M;
     }
-    public static void CrearUsuario(Usuario u)
+    public static void AgregarUsuario(Usuario u)
     {
         string sql = "INSERT INTO Usuario VALUES (@pNombre)";
         using (SqlConnection db = new SqlConnection(_connectionString))
