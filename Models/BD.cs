@@ -27,7 +27,7 @@ public class BD
         }
         return res;
         */
-        Usuario u;
+        Usuario u = null;
         string sql = "SELECT * FROM Usuario WHERE Usuario.Nombre = @pname";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
