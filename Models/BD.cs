@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class BD
 {
 
-    private static string _connectionString = @"Server=DESKTOP-2A953T5\SQLEXPRESS;DataBase=SNEAKERS;Trusted_Connection=True";
+    private static string _connectionString = @"Server=DESKTOP-O63256U\SQLEXPRESS;DataBase=SNEAKERS;Trusted_Connection=True";
 
     public static List<Marca> ListarMarcas()
     {
@@ -17,7 +17,8 @@ public class BD
         }
         return lista;
     }
-    public static Usuario UsuarioDadoNombre(string Nombre){
+    public static Usuario UsuarioDadoNombre(string Nombre)
+    {
         /*int res;
         string sql = "SELECT Count(*) FROM Usuario WHERE Usuario.Nombre = @pname";
         using (SqlConnection db = new SqlConnection(_connectionString))
@@ -26,11 +27,15 @@ public class BD
         }
         return res;
         */
-        Usuario u = null;
-        string sql = "SELECT Count(*) FROM Usuario WHERE Usuario.Nombre = @pname";
+        Usuario u;
+        string sql = "SELECT * FROM Usuario WHERE Usuario.Nombre = @pname";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             u = db.QueryFirstOrDefault<Usuario>(sql, new { pname = Nombre });
+        }
+        if (u == null)
+        {
+            return null;
         }
         return u;
     }

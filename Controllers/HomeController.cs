@@ -16,11 +16,14 @@ public class HomeController : Controller
     {
         return View();
     }
-    public IActionResult CheckUsuario(Usuario U){ 
-        if(BD.UsuarioDadoNombre(U.Nombre) == null){
+    public IActionResult CheckUsuario(Usuario U)
+    {
+        if (BD.UsuarioDadoNombre(U.Nombre) == null)
+        {
             return RedirectToAction("GuardarUsuario", new { u = U });
         }
-        else{
+        else
+        {
             U = BD.UsuarioDadoNombre(U.Nombre);
             return RedirectToAction("Marcas", new { usua = U }); //no se si esto va a funcionar
         }
@@ -31,6 +34,7 @@ public class HomeController : Controller
         ViewBag.Usuario = usua;
         return View();
     }
+    [HttpPost]
     public IActionResult GuardarUsuario(Usuario u)
     {
         BD.AgregarUsuario(u);
