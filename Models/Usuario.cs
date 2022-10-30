@@ -7,6 +7,10 @@ public class Usuario{
         _ID_USUARIO = ID_USUARIO;
         _Nombre = Nombre;
     }
+    public Usuario(string Nombre){
+
+        _Nombre = Nombre;
+    }
 
       public int ID_USUARIO{
         get{
