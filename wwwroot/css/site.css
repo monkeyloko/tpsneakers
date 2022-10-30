@@ -29,10 +29,35 @@ body {
 
 }
 
+.espacioProd {
+  text-align: center;
+  width: 100%;
+  height: 100%;
 
+}
+
+.espacioProd img {
+  margin-bottom: 1%;
+  text-align: center;
+  width: auto;
+  height: 50%;
+
+}
+
+.cuerpoProd {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+.cuerpoProd img {
+  width: 100%;
+  height: 100%;
+
+}
 
 .cuerpoMarcas {
-  margin-top: 25px;
+
   width: 100%;
   height: 100%;
   background-color: rgb(255, 255, 255);
@@ -45,7 +70,9 @@ body {
   object-fit: contain;
 }
 
-
+.navbarMarcas {
+  background-color: rgb(224, 224, 224);
+}
 
 .carousel-item img {
   position: absolute;

@@ -19,19 +19,18 @@
 
     </div>
     <div class="cuerpoMarcas">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="GODEANO row row-cols-1 row-cols-md-3 ">
             @foreach (Marca m in ViewBag.ListaM)
             {
-                <a href='@Url.Action("VerDetalleMarca", "Home", new{ID_MARCA=@m.ID_MARCA})' class="btn">
-                    <h5 class="card-title">@m.Nombre
+                <a href='@Url.Action("VerDetalleMarca", "Home", new{ID_MARCA=@m.ID_MARCA})' class="btn mb">
+                    <h5 class="card-title"> @m.Nombre
                     </h5>
                 </a>
             }
         </div>
 
     </div>
-    <a class="btn btn-primary btn-sm mt-4 ml-4 mb-5" href='@Url.Action("AgregarMarca","Home")'
-        style="float:center;">agregar rere
+    <a class="btn btn-primary btn-sm mt-4 ml-4 mb-5" href='@Url.Action("AgregarMarca","Home")' style="">agregar rere
         marca</a>
 
 
