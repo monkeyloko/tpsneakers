@@ -16,12 +16,12 @@ public class HomeController : Controller
     {
         return View();
     }
-    public IActionResult CheckUsuario(Usuario U){
-        U = BD.UsuarioDadoNombre(U.Nombre);
-        if(U == null){
-            return RedirectToAction("GuardarUsuario", new { u = U }); //no se si esto va a funcionar
+    public IActionResult CheckUsuario(Usuario U){ 
+        if(BD.UsuarioDadoNombre(U.Nombre) == null){
+            return RedirectToAction("GuardarUsuario", new { u = U });
         }
         else{
+            U = BD.UsuarioDadoNombre(U.Nombre);
             return RedirectToAction("Marcas", new { usua = U }); //no se si esto va a funcionar
         }
     }
@@ -34,8 +34,8 @@ public class HomeController : Controller
     public IActionResult GuardarUsuario(Usuario u)
     {
         BD.AgregarUsuario(u);
-        return RedirectToAction("CheckUsuario", new { U = u });  //no se is esto va a funcionar
-        //Lo mando a checkusuario porque no se si mandalo directamente a marca el usuario va a tener el id
+        u = BD.UsuarioDadoNombre(u.Nombre);
+        return RedirectToAction("Marcas", new { U = u });  //no se is esto va a funcionar
     }
 
     public IActionResult VerDetalleMarca(int ID_MARCA)
