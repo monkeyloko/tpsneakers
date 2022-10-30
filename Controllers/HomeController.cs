@@ -16,6 +16,7 @@ public class HomeController : Controller
     {
         return View();
     }
+    [HttpPost]
     public IActionResult CheckUsuario(Usuario U)
     {
         if (BD.UsuarioDadoNombre(U.Nombre) == null)
