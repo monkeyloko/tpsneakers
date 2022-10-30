@@ -14,19 +14,18 @@ public class HomeController : Controller
     }
     public IActionResult Index()
     {
-        ViewBag.ListaM = BD.ListarMarcas();
         return View();
     }
     public IActionResult CheckUsuario(Usuario U){
         U = BD.UsuarioDadoNombre(U.Nombre);
         if(U == null){
-            return RedirectToAction("GuardarUsuario", new { u = U }); //no se is esto va a funcionar
+            return RedirectToAction("GuardarUsuario", new { u = U }); //no se si esto va a funcionar
         }
         else{
-            return RedirectToAction("Marcas", new { usua = U }); //no se is esto va a funcionar
+            return RedirectToAction("Marcas", new { usua = U }); //no se si esto va a funcionar
         }
     }
-    public IActionResult Marcas(Usuario usua) //DEberiamos ver si hay una forma de pasar el usuario sin hacerle universe hopping por todos los parametros de las funbciones
+    public IActionResult Marcas(Usuario usua) //Deberiamos ver si hay una forma de pasar el usuario sin hacerle universe hopping por todos los parametros de las funbciones
     {
         ViewBag.ListaM = BD.ListarMarcas();
         ViewBag.Usuario = usua;
