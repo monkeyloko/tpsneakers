@@ -27,17 +27,17 @@ public class BD
         }
         return res;
         */
-        Usuario u = null;
+        Usuario us = null;
         string sql = "SELECT * FROM Usuario WHERE Usuario.Nombre = @pname";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            u = db.QueryFirstOrDefault<Usuario>(sql, new { pname = Nombre });
+            us = db.QueryFirstOrDefault<Usuario>(sql, new { pname = Nombre });
         }
-        if (u == null)
+        if (us == null)
         {
             return null;
         }
-        return u;
+        return us;
     }
 
     public static void EliminarMarca(int ID_MARCA)
