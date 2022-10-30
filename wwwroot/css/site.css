@@ -35,8 +35,8 @@ body {
   margin-top: 25px;
   width: 100%;
   height: 100%;
-  background-color: aliceblue;
-  margin-bottom: 100px;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20px;
 }
 
 .espacioMarcas img {
