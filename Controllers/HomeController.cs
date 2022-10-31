@@ -66,6 +66,15 @@ public class HomeController : Controller
         BD.AgregarProducto(p);
         return RedirectToAction("VerDetalleMarca", new { ID_MARCA = p.FK_marca });
     }
+    public IActionResult EliminarUsuarioxProducto(int IDPRODUCTO, Usuario US)
+    {
+        BD.EliminarUsuarioxProducto(IDPRODUCTO, US.ID_USUARIO);
+        return RedirectToAction("Carrito", new { usuar = US });
+    }
+    public IActionResult Carrito(Usuario usuar){
+        ViewBag.Carrito = BD.ListarProductosDeCarrito(usuar.ID_USUARIO);
+        return View();
+    }
     public IActionResult AgregarMarca()
     {
         return View();
@@ -76,7 +85,6 @@ public class HomeController : Controller
         Console.WriteLine(m.FechaFundacion);
         BD.AgregarMarca(m);
         return RedirectToAction("Marcas");
-
     }
     public IActionResult Privacy()
     {
