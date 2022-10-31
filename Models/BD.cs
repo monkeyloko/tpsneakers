@@ -33,10 +33,6 @@ public class BD
         {
             us = db.QueryFirstOrDefault<Usuario>(sql, new { pname = Nombre });
         }
-        if (us == null)
-        {
-            return null;
-        }
         return us;
     }
 
