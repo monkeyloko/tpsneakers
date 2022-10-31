@@ -1,9 +1,9 @@
 namespace TPSNEAKERS.Models;
-public class CarritoxProducto{
+public class UsuarioxProducto{
     private int _ID_USUARIO;
     private int _ID_Producto;
 
-    public CarritoxProducto(int ID_USUARIO, int ID_Producto){
+    public UsuarioxProducto(int ID_USUARIO, int ID_Producto){
         _ID_USUARIO = ID_USUARIO;
         _ID_Producto = ID_Producto;
     }

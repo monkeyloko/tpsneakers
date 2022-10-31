@@ -79,6 +79,13 @@ public class BD
         }
         return lista;
     }
+    public static void AgregarUsuarioxProducto(int ID_PRODUCTO, int ID_USUARIO){
+        string sql = "INSERT INTO UsuarioxProductos VALUES (@pID_USUARIO, @pID_PRODUCTO)";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pID_USUARIO = ID_USUARIO, pID_PRODUCTO = ID_USUARIO });
+        }
+    }
     public static List<Productos> ListarProductosDeCarrito(int ID_USUARIO)
     {
         List<Productos> lista = new List<Productos>();

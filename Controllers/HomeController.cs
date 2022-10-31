@@ -72,13 +72,15 @@ public class HomeController : Controller
         BD.AgregarProducto(p);
         return RedirectToAction("VerDetalleMarca", new { ID_MARCA = p.FK_marca });
     }
-    public IActionResult EliminarUsuarioxProducto(int IDPRODUCTO, Usuario US)
+    public IActionResult EliminarUsuarioxProducto(int IDPRODUCTO)
     {
-        BD.EliminarUsuarioxProducto(IDPRODUCTO, US.ID_USUARIO);
-        return RedirectToAction("Carrito", new { usuar = US });
+        BD.EliminarUsuarioxProducto(IDPRODUCTO, Usuari.ID_USUARIO);
+        return RedirectToAction("Carrito");
     }
-    public IActionResult Carrito(Usuario usuar){
-        ViewBag.Carrito = BD.ListarProductosDeCarrito(usuar.ID_USUARIO);
+    
+    public IActionResult Carrito(){
+        ViewBag.Carrito = BD.ListarProductosDeCarrito(Usuari.ID_USUARIO);
+        ViewBag.Usuario = Usuari;
         return View();
     }
     public IActionResult AgregarMarca()
@@ -96,7 +98,6 @@ public class HomeController : Controller
     {
         return View();
     }
-
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
