@@ -75,6 +75,16 @@ public class BD
         }
         return lista;
     }
+    public static List<Productos> ListarProductosDeCarrito(int ID_USUARIO)
+    {
+        List<Productos> lista = new List<Productos>();
+        string sql = "SELECT Productos.ID_Producto, Productos.Nombre, Productos.Foto, Productos.FK_marca FROM Usuario INNER JOIN UsuarioxProducto on Usuario.ID_USUARIO = UsuarioxProducto.ID_USUARIO INNER JOIN Productos ON UsuarioxProducto.ID_PRODUCTO = Productos.ID_PRODUCTOS WHERE Usuario.ID_USUARIO = @pID_U";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            lista = db.Query<Productos>(sql, new { pID_U = ID_USUARIO }).ToList();
+        }
+        return lista;
+    }
 
     public static Productos VerInfoProducto(int ID_Producto)
     {
