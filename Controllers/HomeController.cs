@@ -16,31 +16,37 @@ public class HomeController : Controller
     {
         return View();
     }
+   static Usuario Usuari = new Usuario();
+   // 
+   
+   
     [HttpPost]
     public IActionResult CheckUsuario(Usuario U)
     {
-        U = BD.UsuarioDadoNombre(U.Nombre);
-        if (U == null)
+        Usuari = U;
+        Usuari = BD.UsuarioDadoNombre(U.Nombre);
+        if (Usuari == null)
         {
-            return RedirectToAction("GuardarUsuario", new { u = U });
+            return RedirectToAction("GuardarUsuario", new { str = U.Nombre });
         }
         else
         {
-            return RedirectToAction("Marcas", new { usua = U }); //no se si esto va a funcionar
+            return RedirectToAction("Marcas"); 
         }
     }
-    public IActionResult Marcas(Usuario usua) //Deberiamos ver si hay una forma de pasar el usuario sin hacerle universe hopping por todos los parametros de las funbciones
+    public IActionResult Marcas() 
     {
         ViewBag.ListaM = BD.ListarMarcas();
-        ViewBag.Usuario = usua;
+        ViewBag.Usuario = Usuari;
         return View();
     }
-    [HttpPost]
-    public IActionResult GuardarUsuario(Usuario u)
+
+    public IActionResult GuardarUsuario(string str)
     {
-        BD.AgregarUsuario(u);
-        u = BD.UsuarioDadoNombre(u.Nombre);
-        return RedirectToAction("Marcas", new { U = u });  //no se is esto va a funcionar
+        Usuario us = new Usuario(str);
+        BD.AgregarUsuario(us);
+        Usuari = BD.UsuarioDadoNombre(us.Nombre);
+        return RedirectToAction("Marcas");  
     }
 
     public IActionResult VerDetalleMarca(int ID_MARCA)
