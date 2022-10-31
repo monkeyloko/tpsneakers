@@ -48,6 +48,14 @@ public class BD
             db.Execute(sql, new { pId = ID_MARCA });
         }
     }
+    public static void EliminarUsuarioxProducto(int ID_PRODUCTO, int ID_USUARIO)
+    {
+        string sql = "DELETE FROM UsuarioxProducto WHERE ID_PRODUCTO = @pIdP AND ID_USUARIO = @pIdU";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pIdP = ID_PRODUCTO, pIdU = ID_USUARIO });
+        }
+    }
 
     public static void AgregarMarca(Marca J)
     {
