@@ -19,13 +19,13 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult CheckUsuario(Usuario U)
     {
-        if (BD.UsuarioDadoNombre(U.Nombre) == null)
+        U = BD.UsuarioDadoNombre(U.Nombre);
+        if (U == null)
         {
             return RedirectToAction("GuardarUsuario", new { u = U });
         }
         else
         {
-            U = BD.UsuarioDadoNombre(U.Nombre);
             return RedirectToAction("Marcas", new { usua = U }); //no se si esto va a funcionar
         }
     }
