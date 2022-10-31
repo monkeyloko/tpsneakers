@@ -1,18 +1,18 @@
 namespace TPSNEAKERS.Models;
 public class CarritoxProducto{
-    private int _ID_CARRITO;
+    private int _ID_USUARIO;
     private int _ID_Producto;
 
-    public CarritoxProducto(int ID_CARRITO, int ID_Producto){
-        _ID_CARRITO = ID_CARRITO;
+    public CarritoxProducto(int ID_USUARIO, int ID_Producto){
+        _ID_USUARIO = ID_USUARIO;
         _ID_Producto = ID_Producto;
     }
 
-    public int ID_CARRITO{
+    public int ID_USUARIO{
         get{
-            return _ID_CARRITO;
+            return _ID_USUARIO;
         } set{
-            _ID_CARRITO = value;
+            _ID_USUARIO = value;
         }
     }
     public int ID_Producto{
