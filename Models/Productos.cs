@@ -5,13 +5,15 @@ public class Productos{
     private string _Nombre;
     private string _Foto;
 private int _FK_marca;
+private float _Precio;
    
 
-    public Productos(int ID_Producto, string Nombre, string Foto, int FK_marca){
+    public Productos(int ID_Producto, string Nombre, string Foto, int FK_marca, float Precio){
         _ID_Producto = ID_Producto;
         _Nombre = Nombre;
         _Foto = Foto;
         _FK_marca = FK_marca;
+        _Precio = Precio;
       
     }
 
@@ -43,6 +45,13 @@ private int _FK_marca;
             return _FK_marca;
         } set{
             _FK_marca = value;
+        }
+    }
+    public float Precio{
+        get{
+            return _Precio;
+        } set{
+            _Precio = value;
         }
     }
 

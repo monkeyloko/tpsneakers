@@ -49,7 +49,7 @@ public class HomeController : Controller
         return RedirectToAction("Marcas");  
     }
     public IActionResult AgregarUsuarioxProducto(int ID_PRODUCTO){
-        BD.AgregarUsuarioxProducto(ID_PRODUCTO, Usuari.ID_USUARIO);
+        BD.AgregarUsuarioxProducto( Usuari.ID_USUARIO, ID_PRODUCTO);
         return RedirectToAction("VerDetalleProducto", new { ID_PRODUCTO = ID_PRODUCTO });
     }
 
@@ -62,6 +62,7 @@ public class HomeController : Controller
 
     public IActionResult VerDetalleProducto(int ID_Producto)
     {
+        ViewBag.Usuario = Usuari;
         ViewBag.Producto = BD.VerInfoProducto(ID_Producto);
         return View();
     }
