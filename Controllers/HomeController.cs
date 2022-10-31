@@ -48,6 +48,10 @@ public class HomeController : Controller
         Usuari = BD.UsuarioDadoNombre(us.Nombre);
         return RedirectToAction("Marcas");  
     }
+    public IActionResult AgregarUsuarioxProducto(int ID_PRODUCTO){
+        BD.AgregarUsuarioxProducto(ID_PRODUCTO, Usuari.ID_USUARIO);
+        return RedirectToAction("VerDetalleProducto", new { ID_PRODUCTO = ID_PRODUCTO });
+    }
 
     public IActionResult VerDetalleMarca(int ID_MARCA)
     {
