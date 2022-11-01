@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class BD
 {
 
-    private static string _connectionString = @"Server=A-PHZ2-AMI-005;DataBase=SNEAKERS;Trusted_Connection=True";
+    private static string _connectionString = @"Server=DESKTOP-O63256U\SQLEXPRESS;DataBase=SNEAKERS;Trusted_Connection=True";
 
     public static List<Marca> ListarMarcas()
     {
@@ -79,7 +79,8 @@ public class BD
         }
         return lista;
     }
-    public static void AgregarUsuarioxProducto(int ID_USUARIO,int ID_Producto){
+    public static void AgregarUsuarioxProducto(int ID_USUARIO, int ID_Producto)
+    {
         string sql = "INSERT INTO UsuarioxProducto VALUES (@pID_USUARIO, @pID_PRODUCTO)";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
@@ -89,7 +90,7 @@ public class BD
     public static List<Productos> ListarProductosDeCarrito(int ID_USUARIO)
     {
         List<Productos> lista = new List<Productos>();
-        string sql = "SELECT Productos.ID_Producto, Productos.Nombre, Productos.Foto, Productos.FK_marca FROM Usuario INNER JOIN UsuarioxProducto on Usuario.ID_USUARIO = UsuarioxProducto.ID_USUARIO INNER JOIN Productos ON UsuarioxProducto.ID_PRODUCTO = Productos.ID_PRODUCTO WHERE Usuario.ID_USUARIO = @pID_U";
+        string sql = "SELECT Productos.ID_Producto, Productos.Nombre, Productos.Foto, Productos.FK_marca, Productos.Precio FROM Usuario INNER JOIN UsuarioxProducto on Usuario.ID_USUARIO = UsuarioxProducto.ID_USUARIO INNER JOIN Productos ON UsuarioxProducto.ID_PRODUCTO = Productos.ID_PRODUCTO WHERE Usuario.ID_USUARIO = @pID_U";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             lista = db.Query<Productos>(sql, new { pID_U = ID_USUARIO }).ToList();

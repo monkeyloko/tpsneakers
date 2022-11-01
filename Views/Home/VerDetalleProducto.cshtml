@@ -1,18 +1,19 @@
 ﻿god2
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
-<h1>@ViewBag.Producto.Nombre
-</h1>
-<img src="@ViewBag.Producto.Foto">
-<h1>@ViewBag.Producto.Precio
-</h1>
-<form action='@Url.Action("AgregarUsuarioxProducto", "Home")' method="GET"
-        enctype="multipart/form-data">
-       
-            <input type="hidden" class="form-control" id="ID_USUARIO" placeholder="Nombre" name="ID_USUARIO"value="@ViewBag.Usuario.ID_USUARIO" required>       
-            <input type="hidden" class="form-control" id="ID_Producto" placeholder="Foto" name="ID_Producto" value ="@ViewBag.Producto.ID_Producto"required>
+  <h1>@ViewBag.Producto.Nombre
+  </h1>
+  <img src="@ViewBag.Producto.Foto">
+  <h1>@ViewBag.Producto.Precio
+  </h1>
+  <form action='@Url.Action("AgregarUsuarioxProducto", "Home")' method="get" enctype="multipart/form-data">
 
-          <button type="submit" class="btn btn-primary">Agregar al carrito</button>
-          <a class="btn btn-primary btn-sm mt-4 ml-4" href='@Url.Action("Carrito","Home")'>Ver Carrito</a>
- </form>
+    <input type="hidden" class="form-control" id="ID_USUARIO" placeholder="Nombre" name="ID_USUARIO"
+      value="@ViewBag.Usuario.ID_USUARIO" required>
+    <input type="hidden" class="form-control" id="ID_Producto" placeholder="Foto" name="ID_Producto"
+      value="@ViewBag.Producto.ID_Producto" required>
+
+    <button type="submit" class="btn btn-primary">Agregar al carrito</button>
+    <a class="btn btn-primary btn-sm mt-4 ml-4" href='@Url.Action("Carrito","Home")'>Ver Carrito</a>
+  </form>
 </div>
