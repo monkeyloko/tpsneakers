@@ -21,24 +21,56 @@
                                         <tr>
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Precio</th>
+                                                <th scope="col">Cantidad</th>
                                                 <th scope="col">Eliminar del carrito</th>
                                         </tr>
                                 </thead>
                                 @{
-                                        foreach (Productos p in ViewBag.Carrito)
+                                        bool found;
+                                        float precioT = 0;
+                                        for(int i = 0; i < ViewBag.Carrito.Count; i++)
                                         {
-                                                <tbody>
+                                                precioT += ViewBag.Carrito[i].Precio;
+                                                found = false;
+                                                
+                                                int j = i+1;
+                                                while(j<ViewBag.Carrito.Count && found == false){
+                                                        if(ViewBag.Carrito[i].ID_Producto == ViewBag.Carrito[j].ID_Producto){
+                                                                found = true;         
+                                                        }
+                                                        j++;
+                                                }
+                                                int k = i;
+                                                int cant = 1;
+                                                if(found == false){
+                                                        while(k != 0){
+                                                                k--;
+                                                                if(ViewBag.Carrito[i].ID_Producto == ViewBag.Carrito[k].ID_Producto){
+                                                                       cant++; 
+                                                                }
+                                                        }
+                                                        <tbody>
                                                         <tr>
 
-                                                                <td>@p.Nombre</td>
-                                                                <td>$@p.Precio</td>
-                                                                <td> <a href='@Url.Action("EliminarUsuarioxProducto", "Home", new{IDPRODUCTO=@p.ID_Producto})'
+                                                                <td>@ViewBag.Carrito[i].Nombre</td>
+                                                                <td>$@ViewBag.Carrito[i].Precio</td>
+                                                                <td>X @cant</td>
+                                                                <td> <a href='@Url.Action("EliminarUsuarioxProducto", "Home", new{IDPRODUCTO=@ViewBag.Carrito[i].ID_Producto})'
                                                                         class="btn mb">x</a></td>
                                                         </tr>
-                                                </tbody>
+                                                        </tbody>
+                                                }
+                                               
+                                                
                                         }
                                 }
+                                
                         </table>
+                        <table>
+                                <thead><tr><th>total</th></tr></thead>
+                             <tbody><tr><td>@precioT</td></tr></tbody>     
+                        </table>
+                      
 
 
                 </div>

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class BD
 {
 
-    private static string _connectionString = @"Server=DESKTOP-O63256U\SQLEXPRESS;DataBase=SNEAKERS;Trusted_Connection=True";
+    private static string _connectionString = @"Server=A-PHZ2-AMI-014;DataBase=SNEAKERS;Trusted_Connection=True";
 
     public static List<Marca> ListarMarcas()
     {
