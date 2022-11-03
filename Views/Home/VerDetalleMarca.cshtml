@@ -19,7 +19,7 @@
 
     <div class="espacioProd">
         <h1> Fundador/es : @ViewBag.Marca.Fundadores</h1>
-        <img src=@ViewBag.Marca.Foto style="height:300px; width:auto; margin-bottom:2%;">
+        <img src=@ViewBag.Marca.Foto style="width:30%; margin-bottom:2%;">
         <h1> Fecha de fundacion : @ViewBag.Marca.FechaFundacion.ToShortDateString()</h1>
 
     </div>
@@ -33,8 +33,10 @@
             }
         </div>
 
-    </div> <a class="btn btn-primary btn-sm mt-4 ml-4" style="margin-bottom: 5%; float:right;"
-        href='@Url.Action("AgregarProducto","Home",new {FK_marca = @ViewBag.Marca.ID_MARCA})'>agrregar</a>
+    </div> <a style=" margin-top:1%;margin-bottom: 5%; float:right;"
+        href='@Url.Action("AgregarProducto","Home",new {FK_marca = @ViewBag.Marca.ID_MARCA})'><button type="button"
+            class="btn btn-outline-secondary">Agregar
+            Producto</button></a>
 
 
 

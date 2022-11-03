@@ -16,10 +16,11 @@ public class HomeController : Controller
     {
         return View();
     }
-   static Usuario Usuari = new Usuario();
-   // 
-   
-   
+
+    static Usuario Usuari = new Usuario();
+    // 
+
+
     [HttpPost]
     public IActionResult CheckUsuario(Usuario U)
     {
@@ -31,10 +32,15 @@ public class HomeController : Controller
         }
         else
         {
-            return RedirectToAction("Marcas"); 
+            return RedirectToAction("Marcas");
         }
     }
-    public IActionResult Marcas() 
+    public IActionResult Perfil()
+    {
+        ViewBag.Usuario = Usuari;
+        return View();
+    }
+    public IActionResult Marcas()
     {
         ViewBag.ListaM = BD.ListarMarcas();
         ViewBag.Usuario = Usuari;
@@ -46,10 +52,11 @@ public class HomeController : Controller
         Usuario us = new Usuario(str);
         BD.AgregarUsuario(us);
         Usuari = BD.UsuarioDadoNombre(us.Nombre);
-        return RedirectToAction("Marcas");  
+        return RedirectToAction("Marcas");
     }
-    public IActionResult AgregarUsuarioxProducto(int ID_PRODUCTO){
-        BD.AgregarUsuarioxProducto( Usuari.ID_USUARIO, ID_PRODUCTO);
+    public IActionResult AgregarUsuarioxProducto(int ID_PRODUCTO)
+    {
+        BD.AgregarUsuarioxProducto(Usuari.ID_USUARIO, ID_PRODUCTO);
         return RedirectToAction("VerDetalleProducto", new { ID_PRODUCTO = ID_PRODUCTO });
     }
 
@@ -82,8 +89,9 @@ public class HomeController : Controller
         BD.EliminarUsuarioxProducto(IDPRODUCTO, Usuari.ID_USUARIO);
         return RedirectToAction("Carrito");
     }
-    
-    public IActionResult Carrito(){
+
+    public IActionResult Carrito()
+    {
         ViewBag.Carrito = BD.ListarProductosDeCarrito(Usuari.ID_USUARIO);
         ViewBag.Usuario = Usuari;
         return View();
