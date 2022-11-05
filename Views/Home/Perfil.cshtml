@@ -13,53 +13,54 @@
 <title>Carrito</title>
 
 <body class="bodyPerfil">
+        <div class="container-xxl" style="margin-top: 2%;">
+                <div>
 
-        <div>
-
-                @{
-                        if (ViewBag.Usuario.Nombre == null)
-                        {
-                                <div class="cuerpoPerfil">
-                                        <h1>Para comenzar ingrese un nombre de usuario.</h1>
-                                        <div class="divPerfil">
-                                                <a href='@Url.Action("Index","Home")'><button class="button"
-                                                        style="vertical-align:middle"><span>Ingresar Usuario</span></button></a>
-
-                                        </div>
-                                </div>
-                        }
-                        else
-                        {
-                                <div class="cuerpoPerfil">
-                                        <h1>Bienvenido @ViewBag.Usuario.Nombre!</h1>
-                                        <h4 class="h4Perfil">
-                                                Gracias por contar con nosotros.
-                                        </h4>
-                                        <div class="divPerfil">
-                                                <div class="container">
-                                                        <div class="row">
-                                                                <div class="col">
-                                                                        <h4 class="h4Carrito">Ver Carrito<h4><a
-                                                                                        href='@Url.Action("Carrito","Home")'><img
-                                                                                        src="~/img/carrito.png"
-                                                                                        style="width:35%;"></a>
-                                                                </div>
-                                                                <div class="col">
-                                                                        <h4 class="h4Carrito">Cambiar Cuenta<h4><a
-                                                                                        href='@Url.Action("Index","Home")'><img
-                                                                                        src="~/img/salir.png"
-                                                                                        style="width:35%;"></a>
-                                                                </div>
-                                                        </div>
+                        @{
+                                if (ViewBag.Usuario.Nombre == null)
+                                {
+                                        <div class="cuerpoPerfil">
+                                                <h1>Para comenzar ingrese un nombre de usuario.</h1>
+                                                <div class="divPerfil">
+                                                        <a href='@Url.Action("Index","Home")'><button type="button"
+                                                                class="botonPerfil btn btn-outline-danger">Ingresar Usuario</button></a>
 
                                                 </div>
                                         </div>
+                                }
+                                else
+                                {
+                                        <div class="cuerpoPerfil">
+                                                <h1>Bienvenido @ViewBag.Usuario.Nombre!</h1>
+                                                <h4 class="h4Perfil">
+                                                        Gracias por contar con nosotros.
+                                                </h4>
+                                                <div class="divPerfil">
+                                                        <div class="container">
+                                                                <div class="row">
+                                                                        <div class="col">
+                                                                                <h4 class="h4Carrito">Ver Carrito<h4><a
+                                                                                                href='@Url.Action("Carrito","Home")'><img
+                                                                                                src="~/img/carrito.png"
+                                                                                                style="width:35%;"></a>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                                <h4 class="h4Carrito">Cambiar Cuenta<h4><a
+                                                                                                href='@Url.Action("Index","Home")'><img
+                                                                                                src="~/img/salir.png"
+                                                                                                style="width:35%;"></a>
+                                                                        </div>
+                                                                </div>
 
-                                </div>
-                                <div><a href='@Url.Action("Marcas","Home")' class="botonVolver">Volver</a></div>
+                                                        </div>
+                                                </div>
+
+                                        </div>
+                                        <div><a href='@Url.Action("Marcas","Home")' class="botonVolver">Volver</a></div>
+                                }
+
                         }
 
-                }
 
 
 
@@ -67,8 +68,7 @@
 
 
 
-
-        </div>
+                </div>
 
 
 
@@ -85,6 +85,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
                 integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
                 crossorigin="anonymous"></script>
+        </div>
 </body>
 
 </html>
