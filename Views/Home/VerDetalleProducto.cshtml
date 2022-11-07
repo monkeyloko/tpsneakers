@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿@{
+  ViewData["Title"] = "Producto";
+}
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -13,7 +16,7 @@
   <div class="container-xxl" style="margin-top: 2%;">
     <div class="espacioProd">
       <h1> @ViewBag.Producto.Nombre</h1>
-      <img src=@ViewBag.Producto.Foto style="width:30%; margin-bottom:2%;">
+      <img src=@ViewBag.Producto.Foto style="width:30%; margin-bottom:2%;   border-radius: 10%;">
       <h1> Precio: $@ViewBag.Producto.Precio</h1>
 
     </div>

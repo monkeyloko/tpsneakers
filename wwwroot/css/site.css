@@ -53,18 +53,37 @@ body {
 
 .middle {
   margin-top: 5%;
-
   width: 100%;
   display: flex;
   justify-content: center;
+
 }
 
-#botonIndex {
-  border: 0.05em solid red;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.imagenMarcas:hover {
+  -webkit-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  transition: all .1s linear;
+  scale: 110%;
+
 }
+
+.botonMarcas {
+  text-decoration: none;
+  text-align: center;
+  color: black;
+}
+
+.botonMarcas:hover {
+  text-decoration: none;
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  transition: all .2s linear;
+  scale: 130%;
+
+  background-color: #fff;
+  color: #111111;
+}
+
 
 .espacioMarcas {
   width: 100%;

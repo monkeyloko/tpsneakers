@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Ver Marca";
 }
 
 
@@ -28,7 +28,13 @@
             <div class="row row-cols-1 row-cols-md-3">
                 @foreach (Productos p in ViewBag.ListaP)
                 {
-                    <a href='@Url.Action("VerDetalleProducto", "Home", new{ID_Producto=@p.ID_Producto})'> <img src=@p.Foto>
+                    <a class="imagenMarcas"
+                    href='@Url.Action("VerDetalleProducto", "Home", new{ID_Producto=@p.ID_Producto})'> <img src=@p.Foto
+                        style="img {
+  height: 100px;
+  width: 100px;
+  -o-object-fit: contain;
+}">
                     </a>
                 }
             </div>

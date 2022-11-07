@@ -63,10 +63,10 @@ public class BD
     }
     public static void AgregarProducto(Productos E)
     {
-        string sql = "INSERT INTO Productos VALUES (@pNombre, @pFoto, @pFK_marca)";
+        string sql = "INSERT INTO Productos VALUES (@pNombre, @pFoto, @pFK_marca, @pPrecio)";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(sql, new { pNombre = E.Nombre, pFoto = E.Foto, pFK_marca = E.FK_marca });
+            db.Execute(sql, new { pNombre = E.Nombre, pFoto = E.Foto, pFK_marca = E.FK_marca, pPrecio = E.Precio });
         }
     }
     public static List<Productos> ListarProductos(int FK_marca)

@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿@{
+  ViewData["Title"] = "Agregar Marca";
+}
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -17,42 +20,43 @@
     <div class="container">
       <h1 class="display-4">Agregar Marca</h1>
       <p class="lead">
-      <form action='@Url.Action("GuardarMarca", "Home")' method="POST"
-        enctype="multipart/form-data">
+      <form action='@Url.Action("GuardarMarca", "Home")' method="POST" enctype="multipart/form-data">
         <div class="form-row">
           <div class="col-md-4 mb-3">
             <label for="validationDefault01">Nombre</label>
             <input type="text" class="form-control" id="Nombre" placeholder="Nombre" name="Nombre" required>
           </div>
-           
-            <div class="col-md-4 mb-3">
+
+          <div class="col-md-4 mb-3">
             <label for="validationDefault03">FechaFundacion</label>
-            <input type="date" class="form-control" id="FechaFundacion" placeholder="FechaFundacion" name="FechaFundacion" required>
+            <input type="date" class="form-control" id="FechaFundacion" placeholder="FechaFundacion"
+              name="FechaFundacion" required>
           </div>
-          
+
           <div class="col-md-4 mb-3">
             <label for="validationDefault03">Foto</label>
             <input type="text" class="form-control" id="Foto" placeholder="Foto" name="Foto" required>
           </div>
-        
-           
-        
-             <div class="col-md-4 mb-3">
+
+
+
+          <div class="col-md-4 mb-3">
             <label for="validationDefault03">Fundadores</label>
             <input type="text" class="form-control" id="Fundadores" placeholder="Fundadores" name="Fundadores" required>
           </div>
-            
-          </div>
-          <button type="submit" class="btn btn-primary">Crear</button>
-          <div>
-    
+
+        </div>
+        <button type="submit" class="btn btn-outline-secondary">Crear</button>
+        <div>
+
 
 
       </form>
       </p>
     </div>
   </div>
-  <a class="btn btn-primary btn-sm mt-4 ml-4"
-    href='@Url.Action("Marcas","Home")'>Volver</a>
+  <div class="container">
+    <a class="btn btn-outline-secondary" href='@Url.Action("Marcas","Home")'>Volver</a>
+  </div>
   </div>
 </body>
