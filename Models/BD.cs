@@ -19,14 +19,6 @@ public class BD
     }
     public static Usuario UsuarioDadoNombre(string Nombre)
     {
-        /*int res;
-        string sql = "SELECT Count(*) FROM Usuario WHERE Usuario.Nombre = @pname";
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            res = db.QueryFirstOrDefault<int>(sql, new { pname = Nombre });
-        }
-        return res;
-        */
         Usuario us = null;
         string sql = "SELECT * FROM Usuario WHERE Usuario.Nombre = @pname";
         using (SqlConnection db = new SqlConnection(_connectionString))
